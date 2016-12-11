@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WebAPI.Data;
 
 namespace WebAPI.Controllers
 {
@@ -10,24 +11,24 @@ namespace WebAPI.Controllers
     [Route("students")]
     public class StudentsController : Controller
     {
-
-        public StudentsController()
+        private ApplicationDbContext context;
+        public StudentsController(ApplicationDbContext ctx)
         {
-            //DB Context?
+            context = ctx;
         }
 
         // GET /students
         [HttpGet]
-        public IActionResult Get()
+        public JsonResult Get()
         {
-            //IQueryable<object> students = from student in context.Student select student;
+            IQueryable<object> students = from student in context.Student select student;
 
-            //if (students == null)
-            //{
-            //    return NotFound();
-            //}
-            var students = "Student Info";
-            return Ok(students);
+            if (students == null)
+            {
+                
+               return Json("Sorry");
+            }
+            return Json(students);
 
         }
 
