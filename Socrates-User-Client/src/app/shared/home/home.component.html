@@ -1,3 +1,19 @@
-<p>
-  home works!
-</p>
+<div class="container">
+  <h1 class="text-xs-center">Socrates</h1>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-group" ngModelGroup="authData">
+
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email" [(ngModel)]="auth.email" name="email" required>
+
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" [(ngModel)]="auth.password" name="password" required>
+    </div>
+    <div class="form-group row">
+      <div class="offset-sm-2 col-sm-10">
+        <button type="submit" class="btn btn-primary">Sign in</button>
+        <a [routerLink]="['/register/']">Register</a>
+      </div>
+    </div>
+  </form>
+</div>

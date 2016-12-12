@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>Socrates</title>
@@ -8,7 +9,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
+
 <body>
   <app-root>Loading...</app-root>
+  <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
+  <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB4KpkpHP_SeVLixkj2cHMkWHlcB9UZVZo",
+    authDomain: "socrates-3b06a.firebaseapp.com",
+    databaseURL: "https://socrates-3b06a.firebaseio.com",
+    storageBucket: "socrates-3b06a.appspot.com",
+    messagingSenderId: "1062515117718"
+  };
+  firebase.initializeApp(config);
+</script>
+
 </body>
+
 </html>

@@ -9,6 +9,8 @@ import { RegisterComponent } from './register/register.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { HomeComponent } from './shared/home/home.component';
 import { routing } from "./app.routes";
+import { AuthService } from './shared/auth.service';
+import { EducatorService } from './shared/educator.service';
 
 
 @NgModule({
@@ -22,9 +24,9 @@ import { routing } from "./app.routes";
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
   ],
-  providers: [],
+  providers: [AuthService, EducatorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
