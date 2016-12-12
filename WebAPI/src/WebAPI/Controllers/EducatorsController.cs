@@ -6,6 +6,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
 using System;
 using Microsoft.AspNetCore.Cors;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Net.Http;
 
 namespace WebAPI.Controllers
 {
@@ -24,46 +27,39 @@ namespace WebAPI.Controllers
         [Route("educators")]
         [HttpGet]
         [EnableCors("AllowAll")]
-        public JsonResult Get()
+        public async Task<IActionResult> Get()
         {
-            IQueryable<object> educators = from educator in context.Educator select educator;
 
+            IQueryable<object> educators = from educator in context.Educator select educator;
 
             if (educators == null)
             {
                 return Json(null);
             }
-            
-            return Json(educators);
-            
 
+            return Ok(educators);
         }
-        //POST /educators
-        [HttpPost]
-        public IActionResult Post([FromBody] Educator educator)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-            context.Educator.Add(educator);
-            try
-            {
-                context.SaveChanges();
-            }
-            catch (DbUpdateException)
-            {
-                if (AlreadyCreated(educator.EducatorId))
-                {
-                    return new StatusCodeResult(StatusCodes.Status409Conflict);
-                }
-                else
-                {
-                    throw;
-                }
-            }
-            return Ok(educator);
 
+        [Route("educators")]
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] Educator educator)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Add(educator);
+
+                try
+                {
+                    await context.SaveChangesAsync();
+                }
+                catch (Exception ex)
+                {
+                    return Json(ex);
+                }
+
+                return Json(new { success = "Works!" });
+            }
+            return BadRequest(ModelState);
         }
 
         private bool AlreadyCreated(int id)

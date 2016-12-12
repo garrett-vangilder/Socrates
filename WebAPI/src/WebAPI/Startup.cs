@@ -39,7 +39,7 @@ namespace WebAPI
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(System.Environment.GetEnvironmentVariable("AZURE_PASSWORD")));
+            options.UseSqlServer(System.Environment.GetEnvironmentVariable("AZURE_PASSWORD")));
             services.AddMvc();
         }
 

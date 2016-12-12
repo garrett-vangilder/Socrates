@@ -3,7 +3,7 @@
   <PropertyGroup>
     <ActiveDebugProfile>IIS Express</ActiveDebugProfile>
     <AutoRefresh>false</AutoRefresh>
-    <NameOfLastUsedPublishProfile>WebAPI20161209105729</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>WebAPI20161209105729 - Web Deploy</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
