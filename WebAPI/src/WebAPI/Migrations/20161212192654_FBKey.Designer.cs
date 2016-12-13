@@ -8,9 +8,10 @@ using WebAPI.Data;
 namespace WebAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20161212192654_FBKey")]
+    partial class FBKey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -117,8 +118,7 @@ namespace WebAPI.Migrations
                     b.Property<string>("EmailAddress")
                         .IsRequired();
 
-                    b.Property<string>("FirebaseCode")
-                        .IsRequired();
+                    b.Property<string>("FirebaseUid");
 
                     b.Property<string>("FirstName")
                         .IsRequired();
@@ -219,7 +219,7 @@ namespace WebAPI.Migrations
                     b.Property<string>("City")
                         .IsRequired();
 
-                    b.Property<string>("FirebaseCode")
+                    b.Property<string>("FirebaseUid")
                         .IsRequired();
 
                     b.Property<string>("FirstName")

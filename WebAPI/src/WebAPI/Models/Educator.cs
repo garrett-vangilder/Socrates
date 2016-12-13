@@ -7,7 +7,9 @@ namespace WebAPI.Models
     {
         [Key]
         public int EducatorId { get; set; }
-        public int FirebaseUid { get; set; }
+
+        [Required]
+        public string FirebaseCode { get; set; }
 
         [Required]
         public string FirstName { get; set; }

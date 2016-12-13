@@ -9,7 +9,7 @@ namespace WebAPI.Models
         public int StudentId { get; set; }
 
         [Required]
-        public int FirebaseUid { get; set; }
+        public string FirebaseCode { get; set; }
 
         [Required]
         public string FirstName { get; set; }
