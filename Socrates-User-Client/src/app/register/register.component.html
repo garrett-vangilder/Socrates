@@ -1,0 +1,42 @@
+<h3 class="text-xs-center">Register New Administrator</h3>
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+
+    <div class="form-group" ngModelGroup="userData">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" id="firstName" [(ngModel)]="user.firstName" name="firstName" required>
+
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" id="lastName" [(ngModel)]="user.lastName" name="lastName" required>
+    </div>
+
+    <div class="form-group" ngModelGroup="authData">
+
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email" [(ngModel)]="auth.email" name="email" required>
+
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" [(ngModel)]="auth.password" name="password" required>
+
+
+    <div ngModelGroup="educatorData">
+        <label for="email">Street Address</label>
+        <input type="text" class="form-control" id="streetAddress" [(ngModel)]="educator.StreetAddress" name="streetAddress" required>
+
+        <label for="city">City</label>
+        <input type="text" class="form-control" id="city" [(ngModel)]="educator.City" name="city" required>
+
+        <label for="state">State</label>
+        <input type="text" class="form-control" id="state" [(ngModel)]="educator.State" name="state" required>           
+        
+        <label for="zipCode">ZipCode</label>
+        <input type="text" class="form-control" id="zipCode" [(ngModel)]="educator.ZipCode" name="zipCode" required>      
+
+        <label for="phoneNumber">Phone Number</label>
+        <input type="text" class="form-control" id="phoneNumber" [(ngModel)]="educator.PhoneNumber" name="phoneNumber" required>      
+                                          
+    </div>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
